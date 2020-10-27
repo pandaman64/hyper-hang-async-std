@@ -36,6 +36,6 @@ fn main() {
                 .await
         })
         .unwrap();
-        async_std::task::spawn(res.into_body().try_for_each(|_| futures::future::ok(())));
+        async_std::task::spawn(res.into_body().into_future());
     }
 }
